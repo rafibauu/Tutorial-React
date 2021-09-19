@@ -1,0 +1,28 @@
+.topbar {
+  height: 64px;
+  border-bottom: 1px solid #6c6c6c;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  padding: 0 16px;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  grid-template-columns: max-content 1fr;
+}
+
+.menu-list {
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(1px, max-content));
+  display: grid;
+  gap: 25px;
+  justify-content: right;
+}
