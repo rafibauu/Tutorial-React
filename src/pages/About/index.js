@@ -1,10 +1,33 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 const About = (props) => {
-  console.log(props)
+  const [counter, setCounter] = React.useState(1)
+  const { history } = props
+  console.log(counter)
+
+  if (counter === 5) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+          state: { value: 999 }
+        }}
+      />
+    )
+  }
+
   return (
     <div>
       About
+      <br />
+      <button onClick={() => setCounter(counter + 1)}>
+        Add Counter
+      </button>
+      <br />
+      <button onClick={() => history.push({ pathname: "/", state: { value: 888 } })}>
+        Redirect
+      </button>
     </div>
   )
 }

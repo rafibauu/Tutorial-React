@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 import styles from './topbar.module.css'
 
@@ -13,11 +13,15 @@ const Topbar = () => {
         <div className={styles.menu}>
           <ul className={styles["menu-list"]}>
             <li>
-              <NavLink to="/">
+              <Link to="/" className={styles["menu-item-link"]}>
                 Home
-              </NavLink>
+              </Link>
             </li>
-            <li>About</li>
+            <li>
+              <Link to="/about" className={styles["menu-item-link"]}>
+                About
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

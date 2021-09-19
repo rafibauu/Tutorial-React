@@ -12,24 +12,19 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <Topbar />
-      <Main>
-        <h1>React App</h1>
-        <Router>
+      <Router>
+        <Topbar />
+        <Main>
+          <h1>React App</h1>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/" component={(routerProps) => <Home {...routerProps} />} />
-            <Route exact path="/" render={(routerProps) => <Home {...routerProps} />} />
-            <Route exact path="/" children={(routerProps) => <Home {...routerProps} />} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route>
               <NotFound />
             </Route>
           </Switch>
-        </Router>
-      </Main>
+        </Main>
+      </Router>
     </div>
   );
 }
