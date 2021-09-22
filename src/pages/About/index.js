@@ -7,7 +7,7 @@ const About = (props) => {
   console.log(counter)
 
   if (counter === 5) {
-    return <Redirect to="/" />
+    return <Redirect to={{ pathname: "/", state: { id: 999 } }} />
   }
 
   return (
@@ -18,7 +18,7 @@ const About = (props) => {
         Add Counter
       </button>
       <br />
-      <button onClick={() => history.push("/post")}>
+      <button onClick={() => history.push({ pathname: "/", state: { id: 12345 } })}>
         Redirect
       </button>
     </div>

@@ -1,7 +1,12 @@
 import React from 'react'
 
 const Home = (props) => {
-  console.log(props)
+  const { state } = props.location
+
+  if (state.id) {
+    console.log(state.id)
+  }
+
   return (
     <div>
       Home
