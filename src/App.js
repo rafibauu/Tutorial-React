@@ -6,6 +6,7 @@ import Main from './components/widgets/Main';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import Post from './pages/Post';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/post/:slug/:id" component={Post} />
             <Route>
               <NotFound />
             </Route>

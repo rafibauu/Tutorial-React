@@ -18,6 +18,11 @@ const Topbar = () => {
               </Link>
             </li>
             <li>
+              <Link to="/post" className={styles["menu-item-link"]}>
+                Post
+              </Link>
+            </li>
+            <li>
               <Link to="/about" className={styles["menu-item-link"]}>
                 About
               </Link>

@@ -1,12 +1,6 @@
 import React from 'react'
 
-const Home = (props) => {
-  const { state } = props.location
-
-  if (state.id) {
-    console.log(state.id)
-  }
-
+const Home = () => {
   return (
     <div>
       Home
