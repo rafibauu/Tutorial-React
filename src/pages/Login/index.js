@@ -3,36 +3,89 @@ import styles from './index.module.css'
 
 export class Login extends Component {
   state = {
-    email: '',
-    password: ''
+    field: {
+      name: '',
+      email: '',
+      password: ''
+    },
+    errors: {
+      name: '',
+      email: '',
+      password: ''
+    }
+  }
+
+  handleFormOnValidate = (name, value) => {
+    if (!value) {
+      return 'Mohon isi field'
+    }
+
+    if (name === 'name' && value.length < 3) {
+      return 'Nama minimal 3 karakter'
+    }
+
+    if (name === 'email' && !value.includes('@')) {
+      return 'Format email tidak sesuai'
+    }
+
+    if (name === 'password' && value.length < 8) {
+      return 'Password terlalu pendek'
+    }
+
+    return false
   }
 
   handleFormOnChange = (event) => {
+    const { field, errors } = this.state
     const { value, name } = event.target
-    this.setState({ [name]: value })
+    const error = this.handleFormOnValidate(name, value)
+    this.setState({
+      field: {
+        ...field,
+        [name]: value
+      },
+      errors: {
+        ...errors,
+        [name]: error
+      }
+    })
   }
 
   handleFormOnSubmit = (event) => {
     event.preventDefault()
-    const { email, password } = this.state
-    console.log({ email, password })
+    const { field } = this.state
+    console.log(field)
   }
 
   render() {
-    console.log('Render')
+    // console.log('Render')
+    const { field, errors } = this.state
     return (
       <div>
         <form onSubmit={this.handleFormOnSubmit}>
           <div>
-            <h1>Email</h1>
+            <h1>Name</h1>
             <input
               type="text"
+              name="name"
+              id="name"
+              className={styles.input}
+              value={field.name}
+              onChange={this.handleFormOnChange}
+            />
+            <p>{errors.name}</p>
+          </div>
+          <div>
+            <h1>Email</h1>
+            <input
+              type="email"
               name="email"
               id="email"
               className={styles.input}
-              value={this.state.email}
+              value={field.email}
               onChange={this.handleFormOnChange}
             />
+            <p>{errors.email}</p>
           </div>
           <div>
             <h1>Password</h1>
@@ -41,9 +94,10 @@ export class Login extends Component {
               name="password"
               id="password"
               className={styles.input}
-              value={this.state.password}
+              value={field.password}
               onChange={this.handleFormOnChange}
             />
+            <p>{errors.password}</p>
           </div>
           <button type="submit" className={styles.button}>
             Login
