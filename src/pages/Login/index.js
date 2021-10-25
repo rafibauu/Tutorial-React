@@ -51,10 +51,30 @@ export class Login extends Component {
     })
   }
 
+  handleFormOnSubmitValidation = () => {
+    const { field } = this.state
+    const names = Object.keys(field) // ['name', 'email', 'password']
+    const errors = {}
+    names.forEach((name) => {
+      const value = field[name]
+      const error = this.handleFormOnValidate(name, value)
+      errors[name] = error
+    })
+
+    return errors
+  }
+
   handleFormOnSubmit = (event) => {
     event.preventDefault()
+    const validation = this.handleFormOnSubmitValidation()
+    const hasError = Object.values(validation).some((item) => item !== false)
+    if (hasError) {
+      this.setState({ errors: validation })
+      return
+    }
+
     const { field } = this.state
-    console.log(field)
+    console.log(validation, field) // Proses selanjutnya
   }
 
   render() {
