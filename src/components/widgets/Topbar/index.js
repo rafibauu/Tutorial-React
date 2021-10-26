@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Logo from '../../../static/images/logo.png'
 import styles from './topbar.module.css'
 
 const Topbar = () => {
@@ -8,7 +9,8 @@ const Topbar = () => {
     <nav className={styles.topbar}>
       <div className={styles.container}>
         <div className={styles.brand}>
-          <h3>React App</h3>
+          {/* <h3>React App</h3> */}
+          <img src={Logo} alt="Logo" style={{ height: 35 }} />
         </div>
         <div className={styles.menu}>
           <ul className={styles["menu-list"]}>
