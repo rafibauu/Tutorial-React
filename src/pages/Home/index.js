@@ -12,6 +12,10 @@ const list = [
 ]
 
 const Home = () => {
+  const abc = undefined
+
+  console.log(abc.name)
+
   return list.map((item) => {
     return (
       <React.Fragment key={item.id}>
