@@ -1,4 +1,5 @@
 import React from 'react'
+import withAuth from '../../hoc/withAuth'
 
 const list = [
   {
@@ -11,10 +12,11 @@ const list = [
   }
 ]
 
-const Home = () => {
-  const abc = undefined
+const Home = (props) => {
 
-  console.log(abc.name)
+  // const { auth, GetUserAgent, color } = props
+
+  // console.log(props)
 
   return list.map((item) => {
     return (
@@ -27,4 +29,4 @@ const Home = () => {
   })
 }
 
-export default Home
+export default withAuth(Home)

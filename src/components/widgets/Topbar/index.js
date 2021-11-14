@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 import Logo from '../../../static/images/logo.png'
 import styles from './topbar.module.css'
 
-const Topbar = () => {
+const Topbar = (props) => {
+  const { pathname } = props.location
+  console.log(pathname)
   return (
     <nav className={styles.topbar}>
       <div className={styles.container}>
@@ -36,4 +39,4 @@ const Topbar = () => {
   )
 }
 
-export default Topbar
+export default withRouter(Topbar)
